@@ -1,0 +1,22 @@
+html, body {
+    font-size: 15px;
+}
+
+main {
+    margin-top: 5%;
+}
+
+.shadow-box {
+    box-shadow: 5px 5px 20px 5px #cccccc;
+}
+
+.gnb-search-box {
+    min-width: 240px;
+}
+
+.gnb-search-btn {
+    background: none;
+    border: none;
+    margin-left: -30px;
+    cursor: pointer;
+}

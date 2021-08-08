@@ -13,13 +13,11 @@ spring:
     open-in-view: false
     show-sql: true
     hibernate:
-      format_sql: true
-      ddl-auto: update
-
-  #Thymeleaf
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
+      ddl-auto: create-drop
+      properties:
+        hibernate:
+          show_sql: true
+          format_sql: true
 
 
 #Log Level Config
