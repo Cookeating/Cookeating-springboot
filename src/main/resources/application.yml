@@ -13,6 +13,12 @@ spring:
           show_sql: true
           format_sql: true
 
+  #정적 빌드 수정시 자동 빌드 활성화
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
 
 #Log Level Config
 logging:
@@ -21,3 +27,5 @@ logging:
       hibernate:
         SQL: DEBUG
         type: TRACE
+
+
