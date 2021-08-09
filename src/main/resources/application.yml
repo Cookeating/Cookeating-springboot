@@ -1,19 +1,13 @@
 spring:
-
-  #Datasource
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cookeating?serverTimezone=Asia/Seoul
-    username: root
-    password: 1234
-
+  profiles:
+    include: db
   #JPA
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
       properties:
         hibernate:
           show_sql: true
