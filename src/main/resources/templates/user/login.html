@@ -37,49 +37,6 @@
 </th:block>
 
 <th:block layout:fragment="script">
-    <script th:inline="javascript">
-
-        $(function () {
-            $("#password").keydown(function (key) {
-                if (key.keyCode == 13) {
-                    loginSubmit();
-                }
-            });
-
-            $('#login-btn').on('click', function () {
-                loginSubmit();
-            });
-
-            $('#id-find-btn').on('click', function () {
-                alert("구현중입니다.");
-            });
-
-            $('#pw-find-btn').on('click', function () {
-                alert("구현중입니다.");
-            });
-
-        });
-
-        function loginSubmit() {
-            var data = {
-                loginId: $('#loginId').val(),
-                password: $('#password').val()
-            }
-
-            $.ajax({
-                url: '/api/user/login',
-                type: 'post',
-                dataType: 'json',
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data)
-            })
-                .done(function (data) {
-                    window.location.href = "/";
-                })
-                .fail(function (e) {
-                    alert(e.responseText);
-                });
-        }
-    </script>
+    <script src="/js/user.js"></script>
 </th:block>
 </html>
