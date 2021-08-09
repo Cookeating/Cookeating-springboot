@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/commonLayout}">
+
+<th:block layout:fragment="title">
+    <title>Login</title>
+</th:block>
+
+<th:block layout:fragment="content">
+    <main class="d-flex justify-content-center align-items-center">
+        <div class="col-lg-4 col-md-8">
+            <h3 class="text-center mb-5">LOGIN</h3>
+
+            <div class="shadow-box p-5">
+                <form id="login-form">
+                    <input type="text" class="form-control mt-5 mb-3" id="loginId" placeholder="ID"
+                           required>
+                    <input type="password" class="form-control mb-5" id="password" autocomplete="new-password"
+                           placeholder="비밀번호" required>
+                </form>
+
+                <div class="text-center" id="find-btn">
+                    <button type="button" id="id-find-btn" class="btn btn-link">FindID</button>
+                    <span>|</span>
+                    <button type="button" id="pw-find-btn" class="btn btn-link">FindPW</button>
+                </div>
+
+                <input type="button" id="login-btn" class="btn btn-outline-primary w-100 mt-3 mb-1" value="LOGIN">
+
+                <div class="col-md-12 mt-5 text-center">
+                    <a href="/signUp">아직 회원이 아니신가요?</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+        $(function () {
+            $("#password").keydown(function (key) {
+                if (key.keyCode == 13) {
+                    loginSubmit();
+                }
+            });
+
+            $('#login-btn').on('click', function () {
+                loginSubmit();
+            });
+
+            $('#id-find-btn').on('click', function () {
+                alert("구현중입니다.");
+            });
+
+            $('#pw-find-btn').on('click', function () {
+                alert("구현중입니다.");
+            });
+
+        });
+
+        function loginSubmit() {
+            var data = {
+                loginId: $('#loginId').val(),
+                password: $('#password').val()
+            }
+
+            $.ajax({
+                url: '/api/user/login',
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            })
+                .done(function (data) {
+                    window.location.href = "/";
+                })
+                .fail(function (e) {
+                    alert(e.responseText);
+                });
+        }
+    </script>
+</th:block>
+</html>
