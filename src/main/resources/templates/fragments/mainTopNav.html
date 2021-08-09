@@ -28,7 +28,12 @@
             </form>
             <ul class="navbar-nav ml-lg-5">
                 <li class="nav-item">
-                    <a class="nav-link btn-outline-secondary" href="/login">LOGIN</a>
+                    <th:block th:if="${session.user == null}">
+                        <a class="nav-link btn-outline-secondary" href="/login">LOGIN</a>
+                    </th:block>
+                    <th:block th:if="${session.user != null}">
+                        <a class="nav-link btn-outline-secondary" href="/logout">LOGOUT</a>
+                    </th:block>
                 </li>
             </ul>
         </div>

@@ -6,7 +6,7 @@ $("#sign-up-button").click(function () {
     };
 
     $.ajax({
-        url: '/signUp',
+        url: '/api/user/signUp',
         type: 'post',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
