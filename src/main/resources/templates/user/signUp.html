@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/commonLayout}">
+
+<th:block layout:fragment="title">
+    <title>SignUp</title>
+</th:block>
+
+<th:block layout:fragment="content">
+    <main class="d-flex flex-column align-items-center">
+        <div class="col-lg-4 col-md-8">
+            <h3 class="text-center mb-5">SIGN UP</h3>
+            <div class="shadow-box p-5">
+                <form>
+                    <div class="mb-5">
+                        <label for="loginId">ID</label>
+                        <input type="text" id="loginId" class="form-control" placeholder="ID" required="required"
+                               autocomplete="off">
+                        <span id="loginId-err" class="err" style="color: red; margin-top: 3px"></span>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Password"
+                               required="required">
+                        <span id="password-err" class="err" style="color: red; margin-top: 3px"></span>
+                    </div>
+
+                </form>
+                <button type="button" id="sign-up-button" class="btn btn-outline-primary w-100 mb-5">SIGN UP</button>
+                <div class="text-center">
+                    <span>이미 회원이신가요? &nbsp;</span><a href="/login">로그인하기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</th:block>
+
+</html>

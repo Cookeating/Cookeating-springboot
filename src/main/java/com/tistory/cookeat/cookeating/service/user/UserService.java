@@ -5,10 +5,12 @@ import com.tistory.cookeat.cookeating.domain.user.UserRepository;
 import com.tistory.cookeat.cookeating.dto.SignUpDTO;
 import com.tistory.cookeat.cookeating.exception.DuplicateLoginIdException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -16,9 +18,10 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void signUp(SignUpDTO signUpDTO) throws Exception {
+    public User signUp(SignUpDTO signUpDTO) throws Exception {
         validateDuplicateLoginId(signUpDTO.getLoginId());
-        userRepository.save(signUpDTO.toEntity());
+        log.info("User : {}",signUpDTO.toEntity().toString());
+        return userRepository.save(signUpDTO.toEntity());
     }
 
     private void validateDuplicateLoginId(String loginId) throws Exception {

@@ -13,6 +13,6 @@ public class WelcomeController {
 
     @GetMapping("/signUp")
     public String signUp() {
-        return "signUp";
+        return "user/signUp";
     }
 }
