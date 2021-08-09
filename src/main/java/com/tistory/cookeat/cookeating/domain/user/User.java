@@ -3,12 +3,14 @@ package com.tistory.cookeat.cookeating.domain.user;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity
+@ToString
 public class User {
 
     @Id
