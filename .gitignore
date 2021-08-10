@@ -38,3 +38,4 @@ out/
 
 ### sensitive info ###
 application-db.yml
+application-naver.yml
