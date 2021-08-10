@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter("/api/**")
+@WebFilter("/api/*")
 public class GlobalFilter implements Filter {
 
     @Override
@@ -19,10 +19,7 @@ public class GlobalFilter implements Filter {
         response.setContentType("text/html; charset=utf-8");
 
         //Request url log
-        log.info("doFilter MyFilter, uri : {}", ((HttpServletRequest)request).getRequestURI());
-        log.info("==============================");
-        log.info("contentType = {}",request.getContentType());
-        log.info("==============================");
+        log.info("[Request URI] :: {}", ((HttpServletRequest)request).getRequestURI());
 
         chain.doFilter(request, response);
     }
